@@ -1,17 +1,20 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image, NavigatorIOS } from 'react-native'
 import zen from './zen.png'
+import StartScreen from './StartScreen.js'
+// import QouteScreen from './QouteScreen'
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>I'm ready to relax...</Text>
-        <TouchableOpacity style={styles.button}>
-          <Image source={zen} style={styles.zenImg} />
-        </TouchableOpacity>
-      </View>
-    );
+      <NavigatorIOS
+        initialRoute={{
+          component: StartScreen,
+          title: 'My Initial Scene',
+        }}
+        style={{flex: 1}}
+      />
+    )
   }
 }
 
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic'
   },
   button: {
-    backgroundColor: 'cyan',
+    backgroundColor: '#9bc5c9',
     padding: 10,
     marginBottom: 0,
     marginTop: 20,
