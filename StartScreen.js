@@ -8,7 +8,7 @@ class StartScreen extends React.Component {
   }
   render() {
     const nextRoute = {
-      component: MyView,
+      component: StartScreen,
       title: 'Bar That',
       passProps: { myProp: 'bar' }
     }
