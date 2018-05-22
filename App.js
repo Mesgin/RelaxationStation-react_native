@@ -4,18 +4,10 @@ import { createStackNavigator } from 'react-navigation'; // Version can be speci
 import QouteScreen from './QouteScreen'
 import HomeScreen from './HomeScreen'
 
-
-
-
-
 const RootStack = createStackNavigator(
   {
-    Home: {
-      screen: HomeScreen,
-    },
-    Details: {
-      screen: QouteScreen,
-    },
+    Home: HomeScreen,
+    Details: QouteScreen
   },
   {
     initialRouteName: 'Home',
