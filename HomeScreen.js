@@ -1,23 +1,14 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image, Button } from 'react-native'
 import zen from './zen.png'
 
-class StartScreen extends React.Component {
-  onNavigatorClick(nextRoute) {
-    this.props.navigator.push(nextRoute);
-  }
+export default class HomeScreen extends React.Component {
+
   render() {
-    const nextRoute = {
-      component: StartScreen,
-      title: 'Bar That',
-      passProps: { myProp: 'bar' }
-    }
     return (
       <View style={styles.container}>
         <Text style={styles.title}>I'm ready to relax...</Text>
-        <TouchableOpacity style={styles.button} onPress={this.props.onNavigatorClick}>
-          <Image source={zen} style={styles.zenImg} />
-        </TouchableOpacity>
+        <Button style={styles.button} onPress={()=>this.props.navigation.navigate('Qoutes')} title="Qoutes" />        
       </View>
     )
   }
@@ -51,6 +42,3 @@ const styles = StyleSheet.create({
     height: 100
   }
 })
-
-export default StartScreen
-

@@ -1,20 +1,22 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Image, NavigatorIOS } from 'react-native'
+import { createStackNavigator } from 'react-navigation'
 import zen from './zen.png'
-import StartScreen from './StartScreen.js'
-// import QouteScreen from './QouteScreen'
+import HomeScreen from './HomeScreen.js'
+import QouteScreen from './QouteScreen.js'
+
+const RootStack = createStackNavigator({
+  Home: {screen:HomeScreen},
+  Qoute: {screen:QouteScreen}
+},
+{
+  initialRouteName: 'Home',
+}
+)
 
 export default class App extends React.Component {
   render() {
-    return (
-      <NavigatorIOS
-        initialRoute={{
-          component: StartScreen,
-          title: 'My Initial Scene',
-        }}
-        style={{flex: 1}}
-      />
-    )
+    return <RootStack />
   }
 }
 
