@@ -5,8 +5,8 @@ import zen from './zen.png'
 export default class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>I'm ready to relax...</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
+        <Text style={styles.title}>I'm ready to relax...</Text>
         <Button
           title="Start"
           onPress={() => this.props.navigation.navigate('Details')}
