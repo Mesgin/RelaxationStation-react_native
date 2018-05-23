@@ -9,7 +9,7 @@ export default class HomeScreen extends React.Component {
         <Text style={styles.title}>I'm ready to relax...</Text>
         <Button
           title="Start"
-          onPress={() => this.props.navigation.navigate('Details', { param: 10, otherParam: 'extra' })}
+          onPress={() => this.props.navigation.navigate('Qoutes', { param: 10, otherParam: 'extra' })}
         />
       </View>
     );
