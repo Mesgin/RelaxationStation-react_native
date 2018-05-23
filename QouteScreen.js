@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, View, Text, ImageBackground, StyleSheet } from 'react-native'
+import { Button, View, Text, ImageBackground, StyleSheet, Platform } from 'react-native'
 const bg = require('./assets/img/bg.jpg')
 
 export default class QoutesScreen extends React.Component {
@@ -10,7 +10,7 @@ export default class QoutesScreen extends React.Component {
     return (
       <ImageBackground source={bg} style={styles.bg}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Qoute Screen</Text>
+          <Text style={styles.qouteText}>Qoute Screen</Text>
           <Text>Param: {JSON.stringify(param)}</Text>
           <Text>Other Param: {JSON.stringify(otherParam)}</Text>
           <Text>{JSON.stringify(this.props.screenProps[0])}</Text>
@@ -34,5 +34,10 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     width: undefined,
     height: undefined,
+  },
+  qouteText: {
+    fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Bold' : 'Roboto',
+    fontSize: 36,
+    marginVertical: 30
   }
 })
