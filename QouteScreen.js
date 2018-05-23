@@ -13,7 +13,7 @@ export default class QoutesScreen extends React.Component {
           <Text style={styles.qouteText}>Qoute Screen</Text>
           <Text>Param: {JSON.stringify(param)}</Text>
           <Text>Other Param: {JSON.stringify(otherParam)}</Text>
-          <Text>{JSON.stringify(this.props.screenProps[0])}</Text>
+          <Text style={styles.qouteText}>{JSON.stringify(this.props.screenProps[0])}</Text>
           <Button
             title="Go to Home"
             onPress={() => this.props.navigation.navigate('Home')}
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   qouteText: {
     fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Bold' : 'Roboto',
     fontSize: 36,
-    marginVertical: 30
+    marginVertical: 30,
+    color: '#4e535b'
   }
 })
