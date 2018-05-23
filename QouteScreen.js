@@ -16,7 +16,8 @@ export default class QoutesScreen extends React.Component {
           <Text style={styles.qouteText}>{JSON.stringify(this.props.screenProps[0])}</Text>
           <Button
             title="Next Qoute"
-            onPress={() => this.props.navigation.navigate('Home')}
+            onPress={() => this.props.navigation.goBack()}
+            style={styles.button}
           />
           <Button
             title="Back"
@@ -40,5 +41,10 @@ const styles = StyleSheet.create({
     fontSize: 36,
     marginVertical: 30,
     color: '#4e535b'
+  },
+  button: {
+    backgroundColor: 'white',
+    borderWidth: 2,
+    borderColor: 'white'
   }
 })
