@@ -15,7 +15,7 @@ export default class QoutesScreen extends React.Component {
           <Text>Other Param: {JSON.stringify(otherParam)}</Text>
           <Text style={styles.qouteText}>{JSON.stringify(this.props.screenProps[0])}</Text>
           <Button
-            title="Go to Home"
+            title="Next Qoute"
             onPress={() => this.props.navigation.navigate('Home')}
           />
           <Button
