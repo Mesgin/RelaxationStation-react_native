@@ -1,6 +1,24 @@
 import React from 'react'
-import { Button, View, Text, ImageBackground, StyleSheet, Platform, TouchableOpacity } from 'react-native'
+import { Button, View, Text, ImageBackground, StyleSheet, Platform, TouchableOpacity, LayoutAnimation } from 'react-native'
 const bg = require('./assets/img/zen.jpg')
+const tranquil = {
+  duration: 500,
+  create: {
+    duration: 400,
+    delay: 300,
+    type: LayoutAnimation.Types.easeIn,
+    property: LayoutAnimation.Properties.opacity 
+  },
+  update: {
+    type: LayoutAnimation.Types.easeInEaseOut,
+    property: LayoutAnimation.Properties.opacity 
+  },
+  delete: {
+    duration: 200,
+    type: LayoutAnimation.Types.easeOut,
+    property: LayoutAnimation.Properties.opacity 
+  },
+}
 
 export default class QuotesScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -9,14 +27,21 @@ export default class QuotesScreen extends React.Component {
       title: params ? params.otherParam : 'Quotes Title'
     }
   }
+
   state = {
     quoteIndex: 0
   }
+
+  componentWillUpdate(){
+    LayoutAnimation.configureNext(tranquil)
+  }
+
   nextQuote = () => {
     this.setState({
       quoteIndex: (this.state.quoteIndex >= this.props.screenProps.length - 1) ? 0 : this.state.quoteIndex + 1
     })
   }
+
   render() {
     const param = this.props.navigation.getParam('param', 'no-param')
     const otherParam = this.props.navigation.getParam('otherParam', 'no-other-param')
@@ -27,7 +52,7 @@ export default class QuotesScreen extends React.Component {
           {/* <Text style={styles.quoteText}>Quote Screen</Text> */}
           {/* <Text>Param: {JSON.stringify(param)}</Text>
           <Text>Other Param: {JSON.stringify(otherParam)}</Text> */}
-          <Text style={styles.quoteText}>{JSON.stringify(this.props.screenProps[this.state.quoteIndex])}</Text>
+          <Text key={this.state.quoteIndex} style={styles.quoteText}>{JSON.stringify(this.props.screenProps[this.state.quoteIndex])}</Text>
           <TouchableOpacity
             onPress={this.nextQuote}
             style={styles.button}
@@ -60,8 +85,8 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     color: '#f7f7f7',
     padding: 5,
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 20,
+    marginRight: 8
   },
   button: {
     backgroundColor: '#06767f',

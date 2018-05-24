@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Image, Button, Platform, ImageBackground } from 'react-native'
-import zenn from './zenn.png'
+import zenn from './assets/logo/zen.png'
 const bg = require('./assets/img/zen.jpg')
 
 export default class HomeScreen extends React.Component {
@@ -47,10 +47,10 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     marginTop: 40,
     borderRadius: 100,
-    shadowColor: 'black',
+    shadowColor: '#06767f',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.40,
-    shadowRadius: 8
+    shadowOpacity: 0.50,
+    shadowRadius: 7
 
   },
   image: {
