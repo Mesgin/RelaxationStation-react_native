@@ -24,9 +24,9 @@ export default class QoutesScreen extends React.Component {
     return (
       <ImageBackground source={bg} style={styles.bg}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={styles.qouteText}>Qoute Screen</Text>
-          <Text>Param: {JSON.stringify(param)}</Text>
-          <Text>Other Param: {JSON.stringify(otherParam)}</Text>
+          {/* <Text style={styles.qouteText}>Qoute Screen</Text> */}
+          {/* <Text>Param: {JSON.stringify(param)}</Text>
+          <Text>Other Param: {JSON.stringify(otherParam)}</Text> */}
           <Text style={styles.qouteText}>{JSON.stringify(this.props.screenProps[this.state.qouteIndex])}</Text>
           <TouchableOpacity
             onPress={this.nextQoute}
@@ -50,15 +50,21 @@ const styles = StyleSheet.create({
     height: undefined,
   },
   qouteText: {
+    flex: 2,
     fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Bold' : 'Roboto',
+    alignItems: 'center',
     fontSize: 36,
     marginVertical: 30,
-    color: '#4e535b'
+    color: '#4e535b',
+    padding: 5,
+    marginLeft: 5,
+    marginRight: 5
   },
   button: {
     backgroundColor: '#00edff',
     padding: 15,
-    borderRadius: 10
+    borderRadius: 10,
+    marginBottom: 30
   },
   text: {
     fontSize: 24

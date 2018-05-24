@@ -22,7 +22,8 @@ const RootStack = createStackNavigator(
     },
   }
 )
-const qoutes = ["Qoute 1","Qoute 2","Qoute 3","Qoute 4","Qoute 5"]
+const qoutes = ["Qoute 1: lorem fjssljsfl jfjf  j n  jsjsfkhsfkhskh  hfshfjs h hfjs jhs s jfsh hsh",
+"Qoute 2","Qoute 3","Qoute 4","Qoute 5"]
 
 export default class App extends React.Component {
   render() {
