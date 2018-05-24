@@ -1,20 +1,20 @@
 import React from 'react'
 import { Button, View, Text, ImageBackground, StyleSheet, Platform, TouchableOpacity } from 'react-native'
-const bg = require('./assets/img/bg.jpg')
+const bg = require('./assets/img/zen.jpg')
 
-export default class QoutesScreen extends React.Component {
+export default class QuotesScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state
     return {
-      title: params ? params.otherParam : 'Qoutes Title'
+      title: params ? params.otherParam : 'Quotes Title'
     }
   }
   state = {
-    qouteIndex: 0
+    quoteIndex: 0
   }
-  nextQoute = () => {
+  nextQuote = () => {
     this.setState({
-      qouteIndex: (this.state.qouteIndex >= this.props.screenProps.length - 1) ? 0 : this.state.qouteIndex + 1
+      quoteIndex: (this.state.quoteIndex >= this.props.screenProps.length - 1) ? 0 : this.state.quoteIndex + 1
     })
   }
   render() {
@@ -24,16 +24,16 @@ export default class QoutesScreen extends React.Component {
     return (
       <ImageBackground source={bg} style={styles.bg}>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          {/* <Text style={styles.qouteText}>Qoute Screen</Text> */}
+          {/* <Text style={styles.quoteText}>Quote Screen</Text> */}
           {/* <Text>Param: {JSON.stringify(param)}</Text>
           <Text>Other Param: {JSON.stringify(otherParam)}</Text> */}
-          <Text style={styles.qouteText}>{JSON.stringify(this.props.screenProps[this.state.qouteIndex])}</Text>
+          <Text style={styles.quoteText}>{JSON.stringify(this.props.screenProps[this.state.quoteIndex])}</Text>
           <TouchableOpacity
-            onPress={this.nextQoute}
+            onPress={this.nextQuote}
             style={styles.button}
           >
             <Text style={styles.text}>
-              Next Qoute
+              Next Quote
           </Text>
           </TouchableOpacity>
         </View>
@@ -49,24 +49,28 @@ const styles = StyleSheet.create({
     width: undefined,
     height: undefined,
   },
-  qouteText: {
+  quoteText: {
     flex: 2,
     fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Bold' : 'Roboto',
     alignItems: 'center',
-    fontSize: 36,
+    fontSize: 26,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
     marginVertical: 30,
-    color: '#4e535b',
+    color: '#f7f7f7',
     padding: 5,
     marginLeft: 5,
     marginRight: 5
   },
   button: {
-    backgroundColor: '#00edff',
+    backgroundColor: '#06767f',
     padding: 15,
     borderRadius: 10,
     marginBottom: 30
   },
   text: {
-    fontSize: 24
+    fontSize: 24,
+    color: '#f7f7f7'
   }
 })
