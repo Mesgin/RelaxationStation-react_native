@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, View, Text, ImageBackground, StyleSheet, Platform } from 'react-native'
+import { Button, View, Text, ImageBackground, StyleSheet, Platform, TouchableOpacity } from 'react-native'
 const bg = require('./assets/img/bg.jpg')
 
 export default class QoutesScreen extends React.Component {
@@ -8,6 +8,14 @@ export default class QoutesScreen extends React.Component {
     return {
       title: params ? params.otherParam : 'Qoutes Title'
     }
+  }
+  state = {
+    qouteIndex: 0
+  }
+  nextQoute = () => {
+    this.setState({
+      qouteIndex: (this.state.qouteIndex >= this.props.screenProps.length - 1) ? 0 : this.state.qouteIndex + 1
+    })
   }
   render() {
     const param = this.props.navigation.getParam('param', 'no-param')
@@ -19,16 +27,15 @@ export default class QoutesScreen extends React.Component {
           <Text style={styles.qouteText}>Qoute Screen</Text>
           <Text>Param: {JSON.stringify(param)}</Text>
           <Text>Other Param: {JSON.stringify(otherParam)}</Text>
-          <Text style={styles.qouteText}>{JSON.stringify(this.props.screenProps[0])}</Text>
-          <Button
-            title="Next Qoute"
-            onPress={() => this.props.navigation.goBack()}
+          <Text style={styles.qouteText}>{JSON.stringify(this.props.screenProps[this.state.qouteIndex])}</Text>
+          <TouchableOpacity
+            onPress={this.nextQoute}
             style={styles.button}
-          />
-          <Button
-            title="Back"
-            onPress={() => this.props.navigation.goBack()}
-          />
+          >
+            <Text style={styles.text}>
+              Next Qoute
+          </Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     )
@@ -49,8 +56,11 @@ const styles = StyleSheet.create({
     color: '#4e535b'
   },
   button: {
-    backgroundColor: 'white',
-    borderWidth: 2,
-    borderColor: 'white'
+    backgroundColor: '#00edff',
+    padding: 15,
+    borderRadius: 10
+  },
+  text: {
+    fontSize: 24
   }
 })
