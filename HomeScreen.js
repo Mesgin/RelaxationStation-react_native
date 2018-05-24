@@ -3,14 +3,17 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, Button } from 'react-n
 import zen from './zen.png'
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home'
+  }
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'skyblue' }} >
         <Text style={styles.title}>I'm ready to relax...</Text>
-        <Button
-          title="Start"
-          onPress={() => this.props.navigation.navigate('Qoutes', { param: 10, otherParam: 'extra' })}
-        />
+        <TouchableOpacity style={styles.button}
+        onPress={() => this.props.navigation.navigate('Qoutes', { param: 10, otherParam: 'extra' })}>
+        <Text >start</Text>
+        </TouchableOpacity>
       </View>
     );
   }

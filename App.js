@@ -11,6 +11,15 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#a0b5d6',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
   }
 )
 const qoutes = ["Qoute 1","Qoute 2","Qoute 3","Qoute 4","Qoute 5"]

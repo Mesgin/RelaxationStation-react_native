@@ -3,6 +3,12 @@ import { Button, View, Text, ImageBackground, StyleSheet, Platform } from 'react
 const bg = require('./assets/img/bg.jpg')
 
 export default class QoutesScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state
+    return {
+      title: params ? params.otherParam : 'Qoutes Title'
+    }
+  }
   render() {
     const param = this.props.navigation.getParam('param', 'no-param')
     const otherParam = this.props.navigation.getParam('otherParam', 'no-other-param')
@@ -32,7 +38,7 @@ export default class QoutesScreen extends React.Component {
 const styles = StyleSheet.create({
   bg: {
     flex: 1,
-    resizeMode: 'cover',
+    // resizeMode: 'cover',
     width: undefined,
     height: undefined,
   },
